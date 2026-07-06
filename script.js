@@ -23,8 +23,7 @@ function getHumanChoice(HumanChoice) {
     return HumanChoice;
 }
 
-function playRound(HumanChoice,SCORE){
-    let computerChoice = getComputerChoice(Math.random());computerChoice
+function playRound(computerChoice,HumanChoice,SCORE){
     console.log(`you choose ${HumanChoice}, computer choose ${computerChoice}`);
     if (computerChoice == HumanChoice){
         SCORE[0] += 1;
@@ -50,6 +49,13 @@ const putHumanChoice = document.getElementById("getChoice");
 const saveButton = document.getElementById("putChoice");
 const startButton = document.getElementById("startGame");
 const resetButton = document.getElementById("scoreReset");
+let HumanChoiceOutput = document.getElementById("human-choice");
+let computerChoiceoutput = document.getElementById("computer-choice");
+let humanScoreoutput = document.getElementById("human-score");
+let computerScoreOutput = document.getElementById("computer-score");
+
+humanScoreoutput.innerText = SCORE[0];
+computerScoreOutput.innerText = SCORE[1];
 
 saveButton.addEventListener("click", function(){
     HumanChoice = Number(putHumanChoice.value);
@@ -57,11 +63,18 @@ saveButton.addEventListener("click", function(){
 })
 
 startButton.addEventListener("click",function(){
-    SCORE = playRound(HumanChoice,SCORE);
+    let computerChoice = getComputerChoice(Math.random())
+    SCORE = playRound(computerChoice,HumanChoice,SCORE);
+    computerChoiceoutput.innerText = computerChoice;
+    HumanChoiceOutput.innerText = HumanChoice;
+    humanScoreoutput.innerText = SCORE[0];
+    computerScoreOutput.innerText = SCORE[1];
 })
 
 resetButton.addEventListener("click", function(){
     SCORE = [0,0]
+    humanScoreoutput.innerText = SCORE[0];
+    computerScoreOutput.innerText = SCORE[1];
         console.log(`THE SCORE HAS BEEN RESET\nhuman score : ${SCORE[0]}\ncomputer score : ${SCORE[1]}`)
 })
 
