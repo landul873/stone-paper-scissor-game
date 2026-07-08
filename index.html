@@ -5,22 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>stone-paper-scissor-game</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>WELCOME TO STONE-PAPER-SCISSOR GAME</h1>
-    <p>choose 1,2, or 3:</p>
-    <ol>
-        <li>stone</li>
-        <li>paper</li>
-        <li>scissor</li>
-    </ol>
+    <div>
+        <h2>GAME RULES:</h2>
+        <div class="list">
+            <p>choose 1,2, or 3:</p>
+        <p> 1.stone</p>
+        <p>2.paper</p>
+        <p>3.scissor</p>
+        </div>   
     <input type="number" min="1" max="3" id="getChoice">
-    <button id="putChoice">SAVE</button>
     <button id="startGame">START!!</button>
-    <button id="scoreReset">SCORE RESET</button>
-    <p>You Choose : <span id="human-choice"></span>, computer choose : <span id="computer-choice"></span></p>
+    <button id="scoreReset">RESET GAME</button>
+    <button id="changeScore">CHANGE MAX SCORE</button>
+    <div class="choice">
+        <p>You Choose : <span id="human-choice"></span></p>
+        <p>computer choose : <span id="computer-choice"></span></p>
+    </div>
     <p>You score : <span id="human-score"></span></p>
     <p>Computer score : <span id="computer-score"></span></p>
-    <script src="script.js"></script>
+    </div>
+    <div>
+        <h3 id="gameResultOutput"></h3>
+    </div>
 </body>
 </html>
